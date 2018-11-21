@@ -1,5 +1,5 @@
 # Virtualization tools
 
-Repo containse set of scripts and examples for deploying virtual machines and containers.
+Repo contains a set of scripts and examples for deploying virtual machines and containers.
 
 
