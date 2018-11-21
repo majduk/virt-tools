@@ -1,0 +1,21 @@
+config:
+  user.user-data: |
+    #cloud-config
+    package_upgrade: true
+    packages:
+      - apache2
+    runcmd:
+      - ['a2enmod','proxy']
+      - ['a2enmod','proxy_http']
+      - ['a2enmod','proxy_connect']
+description: Apache proxy
+devices:
+  eth0:
+    name: eth0
+    nictype: bridged
+    parent: lxdbr0
+    type: nic
+  root:
+    path: /
+    pool: default
+    type: disk
