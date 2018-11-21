@@ -1,0 +1,25 @@
+config:
+  environment.http_proxy: http://100.107.0.4:1080/
+  environment.https_proxy: http://100.107.0.4:1080/
+  user.user-data: |
+    #cloud-config
+    ssh_authorized_keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDIK3Cpr/KV1jR7E+HX1pl7j7Z4ayYwKDxIwTyOouoMViGKuizbQx1DOzh2UdI5xcojaf2HMVgKSPhtVDYo3T6eTngm0s2rrSEaghBpgbnJjsW6wt4d6Wn3Baou1+F9YIdLKNwNHG4G47/3TPDaWuCNasHSTXFP6Tq2UwS1qTLrPF3NxtwXcXZomYN4lKKd88uNcvykV90QLeo0IfxFcg4vp3Iz/wcLPfUMfk4Akyp3LVSfnm1fqfqkY3qnRKHTS/e2sK8nyB3EOz/ex1sKBY3wCs2UJRcYEun9uSixhXBzZkB/SxUmneLZ1HEGh4ZzIgD6RyeMAFdZSvz/yB9kSe4z
+description: Dev env LXD profile 
+devices:
+  eth0:
+    nictype: bridged
+    parent: lxdbr0
+    type: nic
+  root:
+    path: /
+    type: disk
+  runner-tools:
+    path: /root/runner-tools
+    source: /home/gitlab-runner/pipeline/runner-tools
+    type: disk
+  cfe:
+    path: /root/cfe
+    source: /home/gitlab-runner/pipeline/cfe
+    type: disk
+
